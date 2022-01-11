@@ -1,0 +1,13 @@
+백준 1712
+
+# sonik ic*a - fix-oc*a > 0
+#       ic*a > fix + oc*a
+#       a(ic-oc) > fix
+#       a > fix / (ic-oc)
+
+fix, oc, ic = map(int, input().split())
+
+if oc >= ic:
+    print(-1)
+else:
+    print((int(fix/(ic-oc)))+1)

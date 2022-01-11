@@ -1,0 +1,7 @@
+백준 15596
+
+def f(a):
+    sum = 0
+    for i in a:
+        sum += i
+    return sum

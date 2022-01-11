@@ -1,0 +1,12 @@
+백준 3052
+a = []
+b = []
+count = 0
+for i in range(10):
+    temp = int(input())
+    temp = temp % 42
+    a.append(temp)
+for i in a:
+    if i not in b:
+        b.append(i)
+print(len(b))

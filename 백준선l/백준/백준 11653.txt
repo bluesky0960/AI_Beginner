@@ -1,0 +1,13 @@
+백준 11653
+
+
+a = int(input())
+def soin(a):
+
+    for i in range(2, a+1):
+        if a % i == 0:
+            print(i)
+            return a // i
+
+while a > 1:
+    a = soin(a)

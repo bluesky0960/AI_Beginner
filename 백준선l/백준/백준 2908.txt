@@ -1,0 +1,14 @@
+백준 2908
+a, b = input().split()
+c = [int(a), int(b)]
+value = []
+for i in c:
+    hun = i // 100
+    ten = (i // 10) % 10
+    one = (i % 100) % 10
+    value.append(one*100 + ten*10 + hun)
+if value[0] > value[1]:
+    print(value[0])
+else:
+    print(value[1])
+    

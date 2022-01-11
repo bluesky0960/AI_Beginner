@@ -1,0 +1,25 @@
+백준 2581
+
+
+a = int(input())
+b = int(input())
+li = []
+def sosu(num):
+    for i in range(2, num):
+        if num % i == 0:
+            return 1
+    return 2
+
+for i in range(a, b+1):
+    if i == 1:
+        continue
+    result = sosu(i)
+    if result == 2:
+        li.append(i)
+
+if len(li) == 0:
+    print(-1)
+else:
+    print(sum(li))        
+    print(li[0])
+

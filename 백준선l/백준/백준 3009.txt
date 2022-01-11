@@ -1,0 +1,16 @@
+백준 3009
+
+
+lix = []
+liy = []
+for i in range(3):  
+    x1, y1 = map(int, input().split())
+    lix.append(x1)
+    liy.append(y1)
+
+for i in range(3):
+    if lix.count(lix[i]) == 1:
+        resultx = lix[i]
+    if liy.count(liy[i]) == 1:
+        resulty = liy[i]
+print(resultx, resulty)

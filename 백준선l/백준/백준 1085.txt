@@ -1,0 +1,9 @@
+백준 1085
+
+
+x, y, w, h = map(int, input().split())
+
+w1 = w - x
+h1 = h - y
+lis = [x, y, w1, h1]
+print(min(lis))

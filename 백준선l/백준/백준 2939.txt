@@ -1,0 +1,17 @@
+백준 2839
+
+# 주어진 무게를 계속 3씩 빼서 5의 배수로 만든다
+# 3씩 뺀 나머지 무게가 5의 배수로 만들어야 가장적은 봉지가 된다.
+
+a = int(input())
+count = 0
+
+while a >= 0:
+    if a % 5 == 0:
+        count += a // 5
+        print(count)
+        break
+    a -= 3
+    count += 1 
+else:
+    print(-1)

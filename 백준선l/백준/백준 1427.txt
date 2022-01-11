@@ -1,0 +1,6 @@
+백준 1427
+
+
+lis = list(input())
+lis.sort(reverse=True)
+print("".join(lis))

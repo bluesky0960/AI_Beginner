@@ -1,0 +1,12 @@
+백준 2292
+
+a = int(input())
+b = 1
+cnt = 1
+sum = 1
+while a > sum:
+    six = 6 * b
+    sum += six
+    cnt += 1
+    b += 1
+print(cnt)

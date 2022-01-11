@@ -1,0 +1,53 @@
+백준 2231
+
+a = int(input())
+# 해당 값까지 하나씩 호출 한 뒤 각각 분해합을 구해 입력된 값과 비교한다.
+# 비교 후 일치하면 break 후 값 출력
+count = 0
+
+num = 0
+lis = []
+
+# 런타임을 줄이기 위해
+# 입력한 숫자인 생성자로 될 가능성이 있는 수들 중에서 가장 큰수가 9로 이루어진 수이다.
+# 1부터 브루트 포스 이용하면 런타임이 오래걸리니 가장 큰수로 이루어진 999(27)부터 브루트 포스를 이용한다.
+nine = a - len(str(a)) * 9
+
+for i in range(nine, a+1):
+    lis.clear()
+    lis.append(i)
+    temp = 0
+    num = i
+    while num > 0:
+        lis.append(num % 10)
+        num = int(num / 10)
+    
+    for j in range(0, len(lis)):   
+        temp += lis[j]
+
+    if temp == a:
+        value = lis[0]
+        break
+    else:
+        value = 0
+        
+print(value)
+
+'''
+a = int(input())
+
+for i in range(10, a+1):
+
+    temp = i
+    stri = str(i)
+    for j in range(len(stri)):
+        temp += int(stri[j])
+
+    if temp == a:
+        value = i
+        break
+    else:
+        value = 0
+        
+print(value)
+'''

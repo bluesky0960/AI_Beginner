@@ -1,0 +1,15 @@
+백준 1436
+
+# 666부터 모든 숫자를 하나씩 호출해 브루트 포스를 진행한다.
+# 그 값들 중에 666이 포함되면 카운트한다.
+
+a = int(input())
+
+count = 0
+
+for i in range(666, 66666666):
+    if '666' in str(i):
+        count += 1
+    if count == a:
+        break
+print(i)

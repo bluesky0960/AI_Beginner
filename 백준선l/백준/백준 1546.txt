@@ -1,0 +1,13 @@
+백준 1546
+
+a = int(input())
+b = list(map(int, input().split()))
+temp = 0
+sum = 0
+for i in range(a):
+    if temp < b[i]:
+        temp = b[i]
+for i in range(a):
+    b[i] = b[i]/temp*100
+    sum = sum + b[i]
+print(sum/a)

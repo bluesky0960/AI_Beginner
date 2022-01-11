@@ -1,0 +1,8 @@
+백준 2675
+
+a = int(input())
+for i in range(a):
+    b = list(str(input()))
+    for j in range(2, len(b)):
+        print(b[j] * int(b[0]),end='')
+    print()

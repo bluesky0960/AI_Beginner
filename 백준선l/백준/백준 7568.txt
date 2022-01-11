@@ -1,0 +1,29 @@
+백준 7568
+
+# 키와 몸무게를 각각의 배열에 저장한다
+# 키 몸무게를 하나씩 호출해 계속 비교하며 브루트 포스를 진행한다
+# 큰 값이 나타나면 랭크를 올린다.
+
+a = int(input())
+
+weight = []
+height = []
+rank = []
+
+for i in range(a):
+    wei, hei = map(int, input().split())
+    weight.append(wei)
+    height.append(hei)
+
+for i in range(a):
+    ranki = 1
+    for j in range(a):
+        if i == j:
+            continue
+        if weight[i] < weight[j] and height[i] < height[j]:
+            ranki += 1
+    rank.append(ranki)
+
+for i in rank:
+    print(i, end = " ")
+    
