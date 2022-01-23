@@ -1,0 +1,17 @@
+백준 10814
+
+
+a = int(input())
+lis = [[0 for i in range(3)] for j in range(a)]
+count = 1 
+
+for i in range(a):
+    age, name = input().split()
+    lis[i][0] = int(age)
+    lis[i][1] = name
+    lis[i][2] = count
+    count += 1
+    
+lis.sort(key=lambda x:(x[0], x[2]))
+for i in range(a):
+    print(lis[i][0], lis[i][1])

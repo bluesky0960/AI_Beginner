@@ -1,0 +1,9 @@
+백준 3053
+
+
+# 유클리드 기하학 원의 넓이 : PI * r^2
+# 택시 기하학 원의 넓이 : 2 * r^2
+import math
+a = int(input())
+print(math.pi*(a**2))
+print(f'{2*(a**2):.6f}')

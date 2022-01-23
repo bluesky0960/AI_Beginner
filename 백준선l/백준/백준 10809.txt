@@ -1,0 +1,7 @@
+백준 10809
+
+a = input()
+#97 ~ 122
+#print(a.find(chr(97)))
+for ac in range(97, 123):
+    print(a.find(chr(ac)), end=' ')

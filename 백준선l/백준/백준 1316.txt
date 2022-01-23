@@ -1,0 +1,17 @@
+백준 1316
+
+
+a = int(input())
+
+count = 0
+for i in range(a):
+    b = input()
+    for j in range(len(b)-1):
+        temp = b[j+1:]
+
+        if b[j] != b[j+1]: 
+            if temp.find(b[j]) != -1: #해당 문자열이 있으면 값을 호출
+                count += 1
+                break
+print(a-count)
+                

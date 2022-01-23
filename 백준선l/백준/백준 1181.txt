@@ -1,0 +1,16 @@
+백준 1181
+
+
+a = int(input())
+lis = []
+for i in range(a):
+    lis.append(input())
+
+# 중복제거
+lis = list(set(lis))
+
+# 정렬하기 : 첫번쨰는길이 두번째는 오름차순 
+lis.sort(key=lambda x:(len(x),x))
+
+for i in lis:
+    print(i)

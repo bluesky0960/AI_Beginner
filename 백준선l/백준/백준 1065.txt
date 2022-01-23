@@ -1,0 +1,19 @@
+백준 1065
+
+
+# 한수 : 1 ~ 99 AND 백의자리 - 십의 자리 == 십의자리 - 일의자리
+
+a = int(input())
+count = 0
+for i in range(1, a+1):
+    if i < 100:
+        count += 1
+    else:
+        on = i // 100
+        i = i % 100
+        tw = i // 10
+        th = i % 10
+        
+        if tw - on == th - tw:
+            count += 1
+print(count)

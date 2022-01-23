@@ -1,0 +1,12 @@
+백준 1157
+a = list(input().upper()) # z z a
+seta = list(set(a))
+b = []
+cnt = 0
+for i in seta:
+    cnt = a.count(i)
+    b.append(cnt)
+if b.count(max(b)) >= 2:
+    print("?")
+else:
+    print(seta[b.index(max(b))])

@@ -1,0 +1,23 @@
+백준 2798
+
+# 블랙잭 : 카드를 뽑아 max 점수를 넘기지 않고 가장 가깝게 가면 이기는 게임
+
+total, max = map(int,input().split())
+
+value = list(map(int, input().split()))
+best = 0
+sum = 0
+compare = max
+result = 0
+# 1 2 3 4 5
+for i in range(total):
+    for j in range(i+1, total-1):
+        for k in range(j+1, total): # 모든 경우의 수 찾기
+                  
+            sum = value[i] + value[j] + value[k]
+            best = max - sum 
+            if best < compare and best >= 0: # best가 0이상이면서, 0에 가까우면 블랙잭
+                compare = best
+                result = sum
+
+print(result)

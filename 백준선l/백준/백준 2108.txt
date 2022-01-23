@@ -1,0 +1,29 @@
+백준 2108
+
+
+from collections import Counter
+
+lis = []
+a = int(input())
+
+for i in range(a):
+    lis.append(int(input()))
+
+print(round(sum(lis) / len(lis)))
+
+#숫자와 갯수를 dic 비스무리한 형태로 만든다
+lis.sort()
+counterList = Counter(lis).most_common()
+
+print(lis[len(lis) // 2])
+
+if a >= 2:
+    if counterList[0][1] == counterList[1][1]:
+        print(counterList[1][0])
+    else :
+        print(counterList[0][0])
+    print(max(lis) - min(lis))
+else:
+
+    print(counterList[0][0])
+    print(max(lis) - min(lis))    

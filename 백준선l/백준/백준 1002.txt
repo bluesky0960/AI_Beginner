@@ -1,0 +1,31 @@
+백준 1002
+
+
+# 교점 구하기 
+# 두 원의 거리 구하기 : ((X1 - X2)^2 + (Y1-Y2)^2)의 제곱근
+# 교점이 2개 일 경우 : r2 - r1 < d and r1 + r2 > d
+# 교점이 1개 일 경우 : r2 - r1 = d or r1 + r2 = d
+# 교점이 없을 경우 : r2 + r1 < d or r2 - r1 > d
+# 교점이 무한대일 경우(같을 경우)
+# : 거리 = 0 and r1 = r2
+import math
+
+a = int(input())
+for i in range(a):
+    x1, y1, r1, x2, y2, r2 = map(int, input().split())
+    
+    d = math.sqrt((x1-x2)**2 + (y1-y2)**2)
+      
+    if d == 0 and r1 == r2:
+    #교점이 무한대(원 일치)
+        print(-1)
+    elif abs(r1 - r2) == d or r1 + r2 == d:
+    #교점 1개
+        print(1)
+    elif abs(r1 - r2) < d < (r1 + r2):
+    #교점 2개
+        print(2)
+    else:
+    #교점이 없을 때
+        print(0)
+    

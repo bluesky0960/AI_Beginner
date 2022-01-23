@@ -1,0 +1,20 @@
+백준 1978
+
+
+# 소수 : 1과 자기 자신만 약수로 가지는 숫자
+
+a = int(input())
+b = list(map(int, input().split()))
+count = 0
+
+def sosu(i):
+    for j in range(2,i):
+        if i % j == 0:
+            return 0
+    return 1
+    
+for i in range(a):
+    if b[i] == 1:
+        continue
+    count += sosu(b[i])
+print(count)

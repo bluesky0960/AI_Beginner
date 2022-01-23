@@ -1,0 +1,40 @@
+백준 5622
+(1번 방법)
+a = list(input())
+cnt = 0
+two = ['A', 'B', 'C']
+three = ['D', 'E', 'F']
+four = ['G', 'H', 'I']
+five = ['J', 'K', 'L']
+six = ['M', 'N', 'O']
+seven = ['P', 'Q', 'R', 'S']
+eight = ['T', 'U', 'V']
+nine = ['W', 'X', 'Y', 'Z']
+for i in a:
+    if i in two:   
+        cnt += 3
+    elif i in three:
+        cnt += 4
+    elif i in four:
+        cnt += 5
+    elif i in five:
+        cnt += 6
+    elif i in six:
+        cnt += 7
+    elif i in seven:
+        cnt += 8
+    elif i in eight:
+        cnt += 9   
+    elif i in nine:
+        cnt += 10    
+print(cnt)                         
+
+(2번 방법)
+a = input()
+cnt = 0
+list = ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQRS', 'TUV', 'WXYZ']
+for i in range(len(a)):
+    for j in list:
+        if a[i] in j:
+            cnt += list.index(j) + 3    
+print(cnt)

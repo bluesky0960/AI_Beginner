@@ -1,0 +1,27 @@
+백준 4673
+
+
+b = 10001
+
+saeng = list(0 for i in range(b))
+
+def selfnum(num):
+    sum = 0
+    sum += num
+    while num < b:
+        sum += num % 10
+        if num / 10 == 0:
+            break
+        num = num // 10
+    return sum
+
+for i in range(b):
+    a = selfnum(i)
+    if a < b:
+        saeng[a] = 1
+    
+
+for j in range(b):
+    
+    if saeng[j] == 0:
+        print(j)

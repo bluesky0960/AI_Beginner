@@ -1,0 +1,27 @@
+백준 2775
+
+a = int(input())
+for i in range(a):
+    floor = int(input())
+    ho = int(input())
+    floor += 1
+    
+    
+    lis = [[0 for j in range(ho)] for k in range(floor)]
+    
+    #첫번째 층은 1씩만 증가
+    for e in range(1, ho+1):
+        lis[0][e-1] = e
+    
+    #2번째 층(1층)부터 아래층 아래호수들 합 실행
+    if floor != 1:
+        for w in range(1, floor):
+            lis[w][0] = 1 #각 층 첫번째 호수는 1로 셋팅
+            for k in range(1, ho): # 이전 층 진입
+                sum = 0
+                for f in range(0, k+1): #이전 호수들 인원 합
+                    sum += lis[w-1][f]
+                lis[w][k] = sum
+    
+    print(lis[floor-1][ho-1])
+    

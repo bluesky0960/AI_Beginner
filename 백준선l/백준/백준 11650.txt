@@ -1,0 +1,19 @@
+백준 11650
+
+
+import sys
+input = sys.stdin.readline
+
+a = int(input())
+lis = [[0 for i in range(2)] for j in range(a)]
+for i in range(a):
+    b, c = map(int, input().split())
+    lis[i][0] = b
+    lis[i][1] = c
+lis.sort()
+
+for i in range(a):
+    print(lis[i][0], end=" ")
+    print(lis[i][1])
+    
+    

@@ -1,0 +1,40 @@
+프로그래머스 - 오픈채팅방
+
+
+# ["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"]
+# ["Prodo님이 들어왔습니다.", "Ryan님이 들어왔습니다.", "Prodo님이 나갔습니다.", "Prodo님이 들어왔습니다."]
+
+def solution(record):
+    answer = []
+    id = {}
+    log = []
+    temp = []
+    
+    for i in record:
+        temp = i.split()
+        
+        if len(temp[0]) == 5 and len(temp) == 3: # Enter 라면?, 
+            id[temp[1]] = temp[2]
+            log.append([temp[1],'enter'])
+            
+        elif len(temp) == 2: # Leave 라면?,
+            log.append([temp[1],'leave'])
+           
+        elif len(temp[0]) == 6 and len(temp) == 3: # Change 라면?
+            id[temp[1]] = temp[2]
+            
+# id = {'uid4567': 'Ryan', 'uid1234': 'Prodo'}   
+# log : [['uid1234', 'enter'], ['uid4567', 'enter'], ['uid1234', 'leave'], ['uid1234', 'enter']]
+
+# 로그를 하나씩 출력 후 enter라면 해당 uid에 맞는 값을 id 딕셔너리에서 찾은 후 해당 값을 호출한다.
+    for i in range(len(log)):
+        str = ""
+        if log[i][1] == 'enter':
+            str = id[log[i][0]] + "님이 들어왔습니다."
+            answer.append(str)
+        
+        else:
+            str = id[log[i][0]] + "님이 나갔습니다."
+            answer.append(str)
+
+    return answer

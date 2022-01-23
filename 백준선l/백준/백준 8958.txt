@@ -1,0 +1,20 @@
+백준 8958
+
+a = int(input())
+b = []
+count = 0
+rec = 1
+for i in range(a):
+    inpu = input()
+    b.append(inpu)
+for i in range(a):
+    c = list(str(b[i]))
+    for j in range(len(c)):
+        if c[j] == 'O':
+            count += rec
+            rec += 1
+        else:
+            rec = 1
+    print(count)
+    count = 0
+    rec = 1

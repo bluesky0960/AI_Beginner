@@ -1,0 +1,13 @@
+백준 2869
+
+
+#up + up*day - down*day >= ob
+#day(up-down) >= ob - up
+#day >= (ob - up)/(up-down)
+#올라가고 낮에 끝날 수 있으니 미리 하루치 up를 더하고 하루를 더한다.
+import math
+up, down, ob = map(int, input().split())
+day = (ob-up)/(up-down)
+print(math.ceil(day+1))
+
+        
