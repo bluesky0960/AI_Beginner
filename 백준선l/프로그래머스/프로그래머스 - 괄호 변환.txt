@@ -1,0 +1,46 @@
+프로그래머스 - 괄호 변환
+
+
+def solution(p): # 솔직히 말하면 어떻게 한진 모르겠고, 시키는 데로만 했을뿐....
+    answer = ''
+    
+    if len(p) == 0: return p # 1
+    
+    u, v = jaegui(p) # 2(재귀)
+
+    if check(u): # 3 
+        return u + solution(v)
+    else: # 4
+        answer += '(' # 4 - 1 / 4 - 2 / 4 - 3
+        answer += solution(v)
+        answer += ')'
+        
+        u = u[1:-1]
+        for i in range(len(u)): # 4 - 4
+            if u[i] == '(':  answer += ')'
+            else:   answer += '('
+        
+    return answer
+
+def jaegui(p):  # 재귀
+    l = 0
+    r = 0
+    
+    for i in range(len(p)):
+        if p[i] == '(':  l += 1
+        else: r += 1
+        if  l == r:
+            u = p[:i+1]
+            v = p[i+1:]
+            return u, v
+        
+def check(p): # 올바른 문자열인지 확인
+    cnt = 0
+    for i in range(len(p)):
+        if p[i] == '(':
+            cnt += 1
+        else:
+            cnt -= 1
+        if cnt < 0:
+            return False
+    return True

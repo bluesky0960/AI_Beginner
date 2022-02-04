@@ -1,0 +1,51 @@
+프로그래머스 - 거리두기 확인하기
+
+
+#1. P를 찾는다 
+#2. P를 찾으면 P의 상하좌우 방향에 P나 O가 있는지 찾는다. -> P면 0 리턴
+#3. 0이 있다면, 또 0의 상하좌우 방향에 P가 있는지 찾는다. -> 있다면 0 리턴
+
+def solution(places):
+    answer = []
+    
+    for room in range(len(places)): # 대기실
+        temp = []
+        temp = places[room]
+        answer.append(check(temp))
+                    
+    return answer
+
+def check(room):
+    for row in range(5):
+        for column in range(5):
+                
+            if room[row][column] == 'P': 
+                try:
+                    if room[row][column-1] == 'O' and column-1 >= 0 :  # 9시 방향
+                        if (room[row-1][column-1] == 'P' and row-1 >= 0 and column >= 0) or (room[row][column-2] == 'P' and column-2 >= 0) or (room[row+1][column-1] == 'P' and column-1 >=0):   return 0                   
+                            
+                    elif room[row][column-1] == 'P' and column-1 >= 0 : return 0
+                except IndexError:
+                    pass
+                
+                try:
+                    if room[row-1][column] == 'O' and row-1 >= 0 :  # 12시 방향
+                        if (room[row-1][column-1] == 'P' and row-1 >= 0 and column-1 >= 0) or (room[row-1][column+1] == 'P' and row-1 >= 0 ) and (room[row-2][column] == 'P' and row-2 >= 0): return 0
+                    elif room[row-1][column] == 'P' and row-1 >= 0 :  return 0
+                except IndexError:
+                    pass
+                
+                try:
+                    if room[row][column+1] == 'O':  # 3시 방향
+                        if (room[row-1][column+1] == 'P' and row-1 >= 0 ) or room[row][column+2] == 'P' or room[row+1][column+1] == 'P':    return 0                                     
+                    elif room[row][column+1] == 'P': return 0
+                except IndexError:
+                    pass
+                 
+                try:
+                    if room[row+1][column] == 'O' :  # 6시 방향
+                        if (room[row+1][column-1] == 'P' and column-1 >= 0) or room[row+2][column] == 'P' or room[row+1][column+1] == 'P':  return 0                                     
+                    elif room[row+1][column] == 'P' :  return 0                                            
+                except IndexError:
+                    pass
+    return 1
