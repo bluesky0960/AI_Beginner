@@ -1,0 +1,49 @@
+프로그래머스 - [1차] 셔틀버스 
+
+
+##  n:셔틀 횟수 t:배차 간격 m:버스 가용인원
+# 테스트 18 13 실패
+
+def solution(n, t, m, timetable):
+    answer = ''
+    minTable = []
+    busLog = [-1 for i in range(n*m)] # 크루들의 버스 탑승 Log 정보
+    cnt = 0
+    busTime = 540 - t # 09:00를 Minute로
+    check = False
+    
+    timetable.sort()
+    for i in timetable:
+        h, min = i.split(":")
+        minTable.append(int(h)*60 + int(min))
+
+    for i in range(n):
+        busTime += t
+        cnt2 = 0
+        try:
+            while minTable[0] <= busTime:
+                busLog[cnt] = minTable[0]
+                del minTable[0]
+                cnt += 1  
+                cnt2 += 1
+                if cnt2 >= m: # 만석이면 다음 버스 이용해주세요.
+                    check = True
+                    break
+        except:
+            pass
+
+        
+    if busLog[-1] != -1 or check == True: # 마지막 버스에 탑승인원이 Full일 경우 - 한 명 끄집어 내고 들어가기(-1)
+        busLog.sort()
+        return str((busLog[-1] - 1) // 60).zfill(2) + ":" + str((busLog[-1] - 1) % 60).zfill(2)
+        
+    if busLog[-1] == -1: # 자기가 들어가도 널널할때, 버스시간 딱 맞춰서 들어가기
+        print(1)
+        return str(busTime // 60).zfill(2) + ":" + str(busTime % 60).zfill(2)
+
+    # 13 18은 True이면서 -1이다 정답은  한줄이다..
+    
+    
+
+    
+    return answer
