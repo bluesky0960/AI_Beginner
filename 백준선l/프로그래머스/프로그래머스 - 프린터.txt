@@ -1,0 +1,24 @@
+
+from collections import deque
+
+def solution(priorities, location):
+    printer = deque(priorities)  # 프린트 대기소
+    index = deque(range(len(printer)))  # 인덱스용
+    cnt = 0
+    
+    while printer:
+        tmp = printer.popleft()
+        itmp = index.popleft()
+        
+        try:
+            if tmp >= max(printer):
+                cnt += 1
+                if location == itmp:
+                    return cnt
+            else:
+                printer.append(tmp)   
+                index.append(itmp)
+        except ValueError:  # 프린트 대기소에 아무것도 없을때, 즉 팝한게 마지막일때,
+            return cnt + 1
+            
+    return cnt

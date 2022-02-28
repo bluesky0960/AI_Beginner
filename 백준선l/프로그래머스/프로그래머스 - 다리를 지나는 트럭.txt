@@ -1,0 +1,20 @@
+from collections import deque
+def solution(bridge_length, weight, truck_weights):
+    sec = 0
+    bridge = deque([0] * bridge_length)
+    wait = deque(truck_weights)
+    sum = 0
+    
+    while bridge:
+        sec += 1
+        tmp = bridge.popleft()
+        if tmp != 0:
+            sum -= tmp # 
+        if wait:
+            if sum + wait[0] <= weight: # sum(bridge) : N
+                tmp = wait.popleft()
+                sum += tmp # 
+                bridge.append(tmp)
+            else:
+                bridge.append(0)
+    return sec
